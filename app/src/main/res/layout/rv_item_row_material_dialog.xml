@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.transport.utils.BindingUtils" />
+
+        <variable
+            name="material"
+            type="com.transport.api.model.RowMaterials.ProductMaterial" />
+    </data>
+
+    <com.transport.widget.CustomSquareLinearLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_2sdp"
+        android:background="@drawable/selector_rectangle_bg_gray_primary"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:background="@color/bgGray">
+
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            image="@{material.image}"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:tint="@color/selector_item_text_gray_black"
+            tools:src="@drawable/ic_date" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{material.name}"
+            android:textColor="@color/selector_item_text_gray_black"
+            tools:text="HouseHold Goods" />
+    </com.transport.widget.CustomSquareLinearLayout>
+</layout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F59C1C</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#F59C1C</color>
+<!--    <color name="colorAccent">#000000</color>-->
+
+
+    <color name="app_bg">#F8F7FC</color>
+    <color name="app_white">#F8F7FC</color>
+
+    <color name="textBlack">#000000</color>
+    <color name="textWhite">#FFFFFF</color>
+
+    <color name="bgGray">#EDEDF0</color>
+    <color name="textGray">#808080</color>
+
+    <color name="ringGreen">#00A651</color>
+    <color name="ringBlue">#00AEEF</color>
+
+    <color name="textLightGray">#D6D6D7</color>
+
+    <color name="fields_light_orange_bg">#4DF59C1C</color>
+</resources>

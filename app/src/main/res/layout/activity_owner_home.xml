@@ -1,0 +1,1060 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_bg"
+        android:keepScreenOn="true"
+        tools:context=".vehicleOwner.OwnerHomeActivity"
+        tools:openDrawer="start">
+
+        <com.sothree.slidinguppanel.SlidingUpPanelLayout
+            android:id="@+id/sliding_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:umanoDragView="@id/nested_scroll_view"
+            app:umanoOverlay="true"
+            app:umanoPanelHeight="@dimen/_210sdp"
+            app:umanoScrollableView="@+id/nested_scroll_view"
+            app:umanoShadowHeight="0dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/app_white"
+                    app:cardCornerRadius="@dimen/_16sdp"
+                    app:cardUseCompatPadding="true">
+
+                    <ImageView
+
+                        android:layout_width="@dimen/_32sdp"
+                        android:layout_height="@dimen/_32sdp"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:padding="@dimen/_8sdp"
+                        android:src="@drawable/ic_menu" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_32sdp"
+                        android:layout_marginStart="@dimen/_32sdp"
+                        android:gravity="center_vertical"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:paddingEnd="0dp"
+                        android:text="@string/home"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14sdp" />
+                </androidx.cardview.widget.CardView>
+
+
+                <com.google.android.gms.maps.MapView
+                    android:id="@+id/mapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+
+                <!--                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+                <!--                    android:id="@+id/fab_current_location"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_gravity="end"-->
+                <!--                    android:layout_marginTop="@dimen/_70sdp"-->
+                <!--                    android:layout_marginEnd="@dimen/_12sdp"-->
+                <!--                    android:src="@drawable/ic_my_location_white_24dp" />-->
+
+                <ImageView
+                    android:id="@+id/fab_current_location"
+                    android:layout_width="@dimen/_48sdp"
+                    android:layout_height="@dimen/_48sdp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_70sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:src="@drawable/selector_location_btn_bg" />
+
+
+                <ImageView
+                    android:layout_width="@dimen/_48sdp"
+                    android:layout_height="@dimen/_48sdp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_70sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:padding="@dimen/_12sdp"
+                    android:src="@drawable/ic_my_location_white_24dp" />
+
+
+                <ImageView
+                    android:id="@+id/fab_order"
+                    android:layout_width="@dimen/_48sdp"
+                    android:layout_height="@dimen/_48sdp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_124sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:src="@drawable/ic_runing_order" />
+
+            </FrameLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nested_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:paddingBottom="@dimen/_12sdp">
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        app:cardBackgroundColor="@color/app_white"
+                        app:cardCornerRadius="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <EditText
+                                android:id="@+id/et_from"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:layout_marginEnd="@dimen/_6sdp"
+                                android:background="@color/app_white"
+                                android:hint="@string/your_location"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:textColor="@color/textBlack"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_from" />
+
+
+                            <EditText
+                                android:id="@+id/et_to"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:layout_marginEnd="@dimen/_6sdp"
+                                android:layout_marginBottom="@dimen/_18sdp"
+                                android:background="@color/app_white"
+                                android:hint="@string/your_location"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:textColor="@color/textBlack"
+                                android:textSize="@dimen/_12sdp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_to" />
+
+                            <ImageView
+                                android:id="@+id/imageView4"
+                                android:layout_width="@dimen/_40sdp"
+                                android:layout_height="@dimen/_40sdp"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:padding="@dimen/_10sdp"
+                                android:src="@drawable/ring_blue"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="@dimen/_40sdp"
+                                android:layout_height="@dimen/_40sdp"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:padding="@dimen/_10sdp"
+                                android:src="@drawable/ring_green"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/tv_to"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:text="@string/to"
+                                android:textColor="@color/textLightGray"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+                            <TextView
+                                android:id="@+id/tv_from"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:text="@string/from"
+                                android:textColor="@color/textLightGray"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toEndOf="@+id/imageView"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <View
+                                android:id="@+id/view"
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_marginStart="@dimen/_6sdp"
+                                android:layout_marginTop="@dimen/_6sdp"
+                                android:background="@color/textLightGray"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/imageView"
+                                app:layout_constraintTop_toBottomOf="@+id/et_from"
+                                app:layout_constraintWidth_percent=".5" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        app:cardBackgroundColor="@color/app_white"
+                        app:cardCornerRadius="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:padding="@dimen/_10sdp"
+                            android:src="@drawable/ic_date" />
+
+                        <TextView
+                            android:id="@+id/tv_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_40sdp"
+                            android:paddingStart="@dimen/_18sdp"
+                            android:paddingEnd="0dp"
+                            android:text="@string/date"
+                            android:textColor="@color/textBlack"
+                            android:textSize="@dimen/_14sdp" />
+                    </androidx.cardview.widget.CardView>
+
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tab_bg_with_notch_"
+                        app:layout_constraintBottom_toBottomOf="@+id/view4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cv_date" />
+
+                    <LinearLayout
+                        android:id="@+id/cv_supply_selection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cv_date">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:text="@string/you_have_to_supply"
+                            android:textColor="@color/textBlack"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_6sdp"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            android:layout_marginEnd="@dimen/_6sdp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/tv_goods"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_32sdp"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:layout_weight="1"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/selector_btn_goods" />
+
+                            <ImageView
+                                android:id="@+id/tv_humans"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_32sdp"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_weight="1"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/selector_btn_humans" />
+
+                            <!--                            <TextView-->
+                            <!--                                android:id="@+id/tv_goods"-->
+                            <!--                                android:layout_width="0dp"-->
+                            <!--                                android:layout_height="wrap_content"-->
+                            <!--                                android:layout_marginEnd="@dimen/dp12"-->
+                            <!--                                android:layout_weight="1"-->
+                            <!--                                android:background="@drawable/selector_item_bg"-->
+                            <!--                                android:gravity="center"-->
+                            <!--                                android:paddingTop="@dimen/dp12"-->
+                            <!--                                android:paddingBottom="@dimen/dp12"-->
+                            <!--                                android:text="@string/goods"-->
+                            <!--                                android:textColor="@color/selector_item_text"-->
+                            <!--                                android:textSize="@dimen/sp18"-->
+                            <!--                                android:textStyle="bold" />-->
+
+                            <!--                            <TextView-->
+                            <!--                                android:id="@+id/tv_humans"-->
+                            <!--                                android:layout_width="0dp"-->
+                            <!--                                android:layout_height="wrap_content"-->
+                            <!--                                android:layout_marginStart="@dimen/dp12"-->
+                            <!--                                android:layout_weight="1"-->
+                            <!--                                android:background="@drawable/selector_item_bg"-->
+                            <!--                                android:gravity="center"-->
+                            <!--                                android:paddingTop="@dimen/dp12"-->
+                            <!--                                android:paddingBottom="@dimen/dp12"-->
+                            <!--                                android:text="@string/humans"-->
+                            <!--                                android:textColor="@color/selector_item_text"-->
+                            <!--                                android:textSize="@dimen/sp18"-->
+                            <!--                                android:textStyle="bold" />-->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view4"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_18sdp"
+                        app:layout_constraintTop_toBottomOf="@+id/cv_supply_selection" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_from_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        app:cardBackgroundColor="@color/app_white"
+                        app:cardCornerRadius="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view4">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <EditText
+                                android:id="@+id/et_product_weight"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_16sdp"
+                                android:layout_marginEnd="@dimen/_16sdp"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:hint="@string/hire_kg_approx"
+                                android:inputType="numberDecimal"
+                                android:maxLines="1"
+                                android:paddingStart="@dimen/_12sdp"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingEnd="@dimen/_12sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                android:singleLine="true"
+                                android:textSize="@dimen/_12sdp"
+                                app:layout_constraintEnd_toStartOf="@+id/tv_select_weight"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <TextView
+                                android:id="@+id/tv_select_weight"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_16sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:drawableEnd="@drawable/ic_arrow_drop_down_gray_24dp"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                android:text="@string/gm"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/_12sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintWidth_percent=".25" />
+
+
+                            <EditText
+                                android:id="@+id/et_budget"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:hint="@string/your_budget"
+                                android:inputType="numberDecimal"
+                                android:maxLines="1"
+                                android:paddingStart="@dimen/_12sdp"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingEnd="@dimen/_12sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                android:singleLine="true"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/_12sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_product_weight" />
+
+
+                            <LinearLayout
+                                android:id="@+id/ll_select_materail_type"
+                                android:layout_width="match_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingStart="@dimen/_12sdp"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingEnd="@dimen/_12sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_budget">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/from_jem"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/_12sdp" />
+
+                                <RadioGroup
+                                    android:id="@+id/rbg_material"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="end"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/rb_solid"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginEnd="@dimen/_6sdp"
+                                        android:text="@string/solid"
+                                        android:textColor="@color/textGray" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_liquid"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginEnd="@dimen/_6sdp"
+                                        android:text="@string/liquid"
+                                        android:textColor="@color/textGray" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_gas"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:text="@string/gas"
+                                        android:textColor="@color/textGray" />
+
+                                </RadioGroup>
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/ll_vehicle_selection"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_select_materail_type">
+
+                                <ImageView
+                                    android:id="@+id/iv_vehicle_selection"
+                                    android:layout_width="@dimen/_28sdp"
+                                    android:layout_height="@dimen/_28sdp"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:layout_marginEnd="@dimen/_2sdp" />
+
+                                <TextView
+                                    android:id="@+id/tv_vehicle_selection"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:drawableEnd="@drawable/ic_arrow_drop_down_gray_24dp"
+                                    android:gravity="center_vertical"
+                                    android:paddingStart="@dimen/_12sdp"
+                                    android:paddingTop="@dimen/_8sdp"
+                                    android:paddingEnd="@dimen/_6sdp"
+                                    android:paddingBottom="@dimen/_8sdp"
+                                    android:text="@string/vehicle_selection"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/_12sdp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_select_vehicle_type"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingStart="@dimen/_12sdp"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingEnd="@dimen/_12sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_vehicle_selection">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/vehicle_type_zem"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/_12sdp" />
+
+
+                                <RadioGroup
+                                    android:id="@+id/rbg_vehicle_typ"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="@dimen/_6sdp"
+                                    android:gravity="end"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/rb_private"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginEnd="@dimen/_6sdp"
+                                        android:paddingStart="@dimen/_6sdp"
+                                        android:paddingEnd="0dp"
+                                        android:text="@string/_private"
+                                        android:textColor="@color/textGray" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_sharing"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:paddingStart="@dimen/_6sdp"
+                                        android:paddingEnd="0dp"
+                                        android:text="@string/sharing"
+                                        android:textColor="@color/textGray" />
+                                </RadioGroup>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_loading_selector"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:paddingStart="@dimen/_12sdp"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingEnd="@dimen/_12sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_select_vehicle_type">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/loading_unloading"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/_12sdp" />
+
+                                <RadioGroup
+                                    android:id="@+id/rbg_loading"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_8sdp"
+                                    android:gravity="end|center_vertical"
+                                    android:orientation="horizontal">
+
+
+                                    <RadioButton
+                                        android:id="@+id/rb_by_customer"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="@dimen/_6sdp"
+                                        android:paddingStart="@dimen/_6sdp"
+                                        android:paddingEnd="0dp"
+                                        android:text="@string/by_customer"
+                                        android:textColor="@color/textGray" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_by_vehicle_owner"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="@dimen/_6sdp"
+                                        android:paddingEnd="0dp"
+                                        android:text="@string/by_vehicle_owner"
+                                        android:textColor="@color/textGray" />
+                                </RadioGroup>
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tv_send_order"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_18sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:layout_marginBottom="@dimen/_24sdp"
+                                android:background="@drawable/rectangle_primary_8_dp"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                android:text="@string/send_order"
+                                android:textAllCaps="true"
+                                android:textColor="@color/textWhite"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_loading_selector"
+                                app:layout_constraintWidth_percent=".65" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_form_data_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="@color/app_white"
+                        app:cardCornerRadius="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cv_from_data"
+                        tools:visibility="visible">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <EditText
+                                android:id="@+id/et_peoples"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_16sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:hint="@string/peoples"
+                                android:inputType="number"
+                                android:paddingStart="@dimen/_12sdp"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingEnd="@dimen/_6sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/_12sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <EditText
+                                android:id="@+id/et_price"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:hint="@string/your_budget"
+                                android:inputType="numberDecimal"
+                                android:paddingStart="@dimen/_12sdp"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingEnd="@dimen/_6sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/_12sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_peoples" />
+
+                            <LinearLayout
+                                android:id="@+id/ll_vehicle_selection_2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_price">
+
+                                <ImageView
+                                    android:id="@+id/iv_vehicle_selection_human"
+                                    android:layout_width="@dimen/_28sdp"
+                                    android:layout_height="@dimen/_28sdp"
+                                    android:layout_marginStart="@dimen/_4sdp"
+                                    android:layout_marginEnd="@dimen/_4sdp" />
+
+                                <TextView
+                                    android:id="@+id/tv_vehicle_selection_2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:drawableEnd="@drawable/ic_arrow_drop_down_gray_24dp"
+                                    android:gravity="center_vertical"
+                                    android:paddingStart="@dimen/_12sdp"
+                                    android:paddingTop="@dimen/_8sdp"
+                                    android:paddingEnd="@dimen/_6sdp"
+                                    android:paddingBottom="@dimen/_8sdp"
+                                    android:text="@string/vehicle_selection"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/_12sdp" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/ll_select_vehicle_type_human"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingStart="@dimen/_12sdp"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingEnd="@dimen/_12sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_vehicle_selection_2">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/vehicle_type_zem"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/_12sdp" />
+
+
+                                <RadioGroup
+                                    android:id="@+id/rbg_vehicle_typ_human"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="@dimen/_6sdp"
+                                    android:gravity="end"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/rb_private_human"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginEnd="@dimen/_6sdp"
+                                        android:paddingStart="@dimen/_6sdp"
+                                        android:paddingEnd="0dp"
+                                        android:text="@string/_private"
+                                        android:textColor="@color/textGray" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_sharing_human"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:paddingStart="@dimen/_6sdp"
+                                        android:paddingEnd="0dp"
+                                        android:text="@string/sharing"
+                                        android:textColor="@color/textGray" />
+                                </RadioGroup>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_luaggage_selector"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:paddingStart="@dimen/_12sdp"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingEnd="@dimen/_12sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_select_vehicle_type_human">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/luggage"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/_12sdp" />
+
+                                <RadioGroup
+                                    android:id="@+id/rbg_luggage"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_8sdp"
+                                    android:gravity="end|center_vertical"
+                                    android:orientation="horizontal">
+
+
+                                    <RadioButton
+                                        android:id="@+id/rb_with_luggage"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="@dimen/_6sdp"
+                                        android:paddingStart="@dimen/_6sdp"
+                                        android:paddingEnd="0dp"
+                                        android:text="@string/with_luggage"
+                                        android:textColor="@color/textGray" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_without_luggage"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="@dimen/_6sdp"
+                                        android:paddingEnd="0dp"
+                                        android:text="@string/without_luggage"
+                                        android:textColor="@color/textGray" />
+                                </RadioGroup>
+                            </LinearLayout>
+
+                            <EditText
+                                android:id="@+id/et_luggage_weight"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:hint="@string/luggage_weigth_approx_kg"
+                                android:paddingStart="@dimen/_12sdp"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingEnd="@dimen/_6sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/_12sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_luaggage_selector" />
+
+
+                            <TextView
+                                android:id="@+id/tv_send_order_2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/_16sdp"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:layout_marginBottom="@dimen/_24sdp"
+                                android:background="@drawable/rectangle_primary_8_dp"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp8"
+                                android:paddingBottom="@dimen/dp12"
+                                android:text="@string/send_order"
+                                android:textAllCaps="true"
+                                android:textColor="@color/textWhite"
+                                android:textSize="@dimen/sp18"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_luggage_weight"
+                                app:layout_constraintWidth_percent=".65" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent" />-->
+
+        </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_drawer_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                tools:src="@drawable/drawer_bg" />
+
+            <ImageView
+                android:id="@+id/iv_user_photo"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:background="@drawable/circle_white"
+                android:padding="@dimen/_6sdp"
+                android:src="@drawable/press_my_profile"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".2" />
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_user_number"
+                app:layout_constraintStart_toEndOf="@+id/iv_user_photo"
+                app:layout_constraintTop_toTopOf="@+id/iv_user_photo"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Mr.Abcd" />
+
+            <TextView
+                android:id="@+id/tv_user_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_user_photo"
+                app:layout_constraintStart_toEndOf="@+id/iv_user_photo"
+                app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
+                tools:text="Mo. 9687574411" />
+
+            <TextView
+                android:id="@+id/tv_profile_complete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:text="Your Profile is Complete 70%"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_user_photo" />
+
+            <ProgressBar
+                android:id="@+id/progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_2sdp"
+                android:layout_marginStart="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="55"
+                android:progressDrawable="@drawable/bg_custom_progressbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_profile_complete"
+                app:layout_constraintWidth_percent=".7" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_list"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_76sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progress"
+                tools:listitem="@layout/rv_drawer_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

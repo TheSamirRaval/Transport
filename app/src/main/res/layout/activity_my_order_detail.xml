@@ -1,0 +1,1153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keepScreenOn="true"
+        android:orientation="vertical"
+        tools:context=".myOrder.MyOrderDetailActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/my_order"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_16sdp" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.sothree.slidinguppanel.SlidingUpPanelLayout
+            android:id="@+id/sliding_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            app:umanoDragView="@id/nested_scroll_view"
+            app:umanoOverlay="true"
+            app:umanoPanelHeight="@dimen/_210sdp"
+            app:umanoScrollableView="@+id/nested_scroll_view"
+            app:umanoShadowHeight="0dp">
+
+             <com.google.android.gms.maps.MapView
+                 android:id="@+id/mapView"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent" />
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nested_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:paddingBottom="@dimen/_12sdp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp16"
+                        android:layout_marginTop="@dimen/dp8"
+                        android:layout_marginEnd="@dimen/dp16"
+                        app:cardBackgroundColor="@color/app_white"
+                        app:cardCornerRadius="@dimen/dp16"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <EditText
+                                android:id="@+id/et_from"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="@color/app_white"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="@string/your_location"
+                                android:longClickable="false"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:textColor="@color/textBlack"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_from" />
+
+
+                            <EditText
+                                android:id="@+id/et_to"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="24dp"
+                                android:background="@color/app_white"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="@string/your_location"
+                                android:longClickable="false"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:textColor="@color/textBlack"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_to" />
+
+                            <ImageView
+                                android:id="@+id/imageView4"
+                                android:layout_width="@dimen/dp48"
+                                android:layout_height="@dimen/dp48"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginTop="12dp"
+                                android:padding="@dimen/dp12"
+                                android:src="@drawable/ring_blue"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="@dimen/dp48"
+                                android:layout_height="@dimen/dp48"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginTop="12dp"
+                                android:padding="@dimen/dp12"
+                                android:src="@drawable/ring_green"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/tv_to"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="16dp"
+                                android:text="@string/to"
+                                android:textColor="@color/textLightGray"
+                                android:textSize="@dimen/sp16"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+                            <TextView
+                                android:id="@+id/tv_from"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="16dp"
+                                android:text="@string/from"
+                                android:textColor="@color/textLightGray"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toEndOf="@+id/imageView"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <View
+                                android:id="@+id/view"
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@color/textLightGray"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/imageView"
+                                app:layout_constraintTop_toBottomOf="@+id/et_from"
+                                app:layout_constraintWidth_percent=".5" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp16"
+                        android:layout_marginTop="@dimen/dp16"
+                        android:layout_marginEnd="16dp"
+                        app:cardBackgroundColor="@color/app_white"
+                        app:cardCornerRadius="@dimen/dp16"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp48"
+                            android:layout_height="@dimen/dp48"
+                            android:layout_marginStart="@dimen/dp12"
+                            android:padding="@dimen/dp12"
+                            android:src="@drawable/ic_date" />
+
+                        <TextView
+                            android:id="@+id/tv_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/dp48"
+                            android:paddingStart="@dimen/dp24"
+                            android:paddingEnd="0dp"
+                            android:text="@string/date_and_time"
+                            android:textColor="@color/textBlack"
+                            android:textSize="@dimen/sp18" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_from_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp16"
+                        android:layout_marginTop="@dimen/dp16"
+                        android:layout_marginEnd="@dimen/dp16"
+                        app:cardBackgroundColor="@color/app_white"
+                        app:cardCornerRadius="@dimen/dp16"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cv_date">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/dp32">
+
+                            <EditText
+                                android:id="@+id/et_product_name"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="@string/product_name"
+                                android:longClickable="false"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp8"
+                                android:paddingBottom="@dimen/dp12"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <EditText
+                                android:id="@+id/et_product_weight"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="@string/product_weight"
+                                android:inputType="numberDecimal"
+                                android:longClickable="false"
+                                android:maxLines="1"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp16"
+                                android:paddingBottom="@dimen/dp12"
+                                android:singleLine="true"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintEnd_toStartOf="@+id/tv_select_weight"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_select_materail_type" />
+
+                            <LinearLayout
+                                android:id="@+id/ll_select_materail_type"
+                                android:layout_width="match_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp16"
+                                android:paddingBottom="@dimen/dp12"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_select_material">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/from_jem"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/sp16" />
+
+                                <RadioGroup
+                                    android:id="@+id/rbg_material"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="end"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/rb_solid"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginEnd="@dimen/dp8"
+                                        android:clickable="false"
+                                        android:text="@string/solid"
+                                        android:textColor="@color/textGray" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_liquid"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginEnd="8dp"
+                                        android:text="@string/liquid"
+                                        android:textColor="@color/textGray" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_gas"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:clickable="false"
+                                        android:text="@string/gas"
+                                        android:textColor="@color/textGray" />
+
+                                </RadioGroup>
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tv_select_material"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:drawableEnd="@drawable/ic_arrow_drop_down_gray_24dp"
+                                android:gravity="center_vertical"
+                                android:hint="@string/select_materials"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="12dp"
+                                android:paddingEnd="@dimen/dp16"
+                                android:paddingBottom="12dp"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_product_name" />
+
+                            <TextView
+                                android:id="@+id/tv_select_weight"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:drawableEnd="@drawable/ic_arrow_drop_down_gray_24dp"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingBottom="@dimen/dp12"
+                                android:text="@string/gm"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_select_materail_type"
+                                app:layout_constraintWidth_percent=".25" />
+
+                            <TextView
+                                android:id="@+id/tv_select_size"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:drawableEnd="@drawable/ic_arrow_drop_down_gray_24dp"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingBottom="@dimen/dp12"
+                                android:text="@string/inch"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_select_weight"
+                                app:layout_constraintWidth_percent=".25" />
+
+                            <View
+                                android:id="@+id/view2"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/textView8"
+                                app:layout_constraintEnd_toStartOf="@+id/tv_select_size"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_product_weight" />
+
+
+                            <TextView
+                                android:id="@+id/textView8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp16"
+                                android:paddingBottom="@dimen/dp12"
+                                android:text="@string/size"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_product_weight" />
+
+                            <EditText
+                                android:id="@+id/et_height"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:background="@drawable/rectangle_bg_white_8_dp"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:gravity="center"
+                                android:hint="@string/height"
+                                android:inputType="number"
+                                android:longClickable="false"
+                                android:paddingTop="@dimen/dp6"
+                                android:paddingBottom="@dimen/dp6"
+                                android:textColor="@color/textGray"
+                                android:textSize="14sp"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
+                                app:layout_constraintEnd_toEndOf="@+id/view2"
+                                app:layout_constraintStart_toEndOf="@id/tv_x" />
+
+
+                            <TextView
+                                android:id="@+id/tv_x"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="@dimen/dp8"
+                                android:paddingEnd="@dimen/dp8"
+                                android:text="@string/x"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
+                                app:layout_constraintEnd_toStartOf="@+id/et_height"
+                                app:layout_constraintStart_toEndOf="@+id/et_width" />
+
+                            <EditText
+                                android:id="@+id/et_width"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:background="@drawable/rectangle_bg_white_8_dp"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:gravity="center"
+                                android:hint="@string/width"
+                                android:inputType="number"
+                                android:longClickable="false"
+                                android:paddingTop="@dimen/dp6"
+                                android:paddingBottom="@dimen/dp6"
+                                android:textColor="@color/textGray"
+                                android:textSize="14sp"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
+                                app:layout_constraintEnd_toStartOf="@+id/tv_x"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintStart_toEndOf="@+id/textView8" />
+
+
+                            <EditText
+                                android:id="@+id/et_budget"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="@string/your_budget"
+                                android:inputType="numberDecimal"
+                                android:longClickable="false"
+                                android:maxLines="1"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp16"
+                                android:paddingBottom="@dimen/dp12"
+                                android:singleLine="true"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+
+                            <LinearLayout
+                                android:id="@+id/ll_vehicle_selection_goods"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp8"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/et_budget"
+                                app:layout_constraintTop_toBottomOf="@+id/view2">
+
+                                <ImageView
+                                    android:id="@+id/iv_vehicle_selection_goods"
+                                    android:layout_width="@dimen/_28sdp"
+                                    android:layout_height="@dimen/_28sdp"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:layout_marginEnd="@dimen/_2sdp" />
+
+                                <TextView
+                                    android:id="@+id/tv_vehicle_selection_goods"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:drawableEnd="@drawable/ic_arrow_drop_down_gray_24dp"
+                                    android:gravity="center_vertical"
+                                    android:paddingHorizontal="@dimen/_6sdp"
+                                    android:paddingVertical="@dimen/dp12"
+                                    android:text="@string/vehicle_selection"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/_10sdp" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/ll_select_vehicle_type"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp16"
+                                android:paddingBottom="@dimen/dp12"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_budget">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/vehicle_type_zem"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/sp16" />
+
+
+                                <RadioGroup
+                                    android:id="@+id/rbg_vehicle_typ"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="@dimen/dp8"
+                                    android:gravity="end"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/rb_private"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginEnd="@dimen/dp8"
+                                        android:clickable="false"
+                                        android:paddingStart="@dimen/dp8"
+                                        android:paddingEnd="0dp"
+                                        android:text="@string/_private"
+                                        android:textColor="@color/textGray" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_sharing"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:clickable="false"
+                                        android:paddingStart="@dimen/dp8"
+                                        android:paddingEnd="0dp"
+                                        android:text="@string/sharing"
+                                        android:textColor="@color/textGray" />
+                                </RadioGroup>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_loading_selector"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp16"
+                                android:paddingBottom="@dimen/dp12"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_select_vehicle_type">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/loading_unloading"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/sp16" />
+
+                                <RadioGroup
+                                    android:id="@+id/rbg_loading"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp12"
+                                    android:gravity="end|center_vertical"
+                                    android:orientation="horizontal">
+
+
+                                    <RadioButton
+                                        android:id="@+id/rb_by_customer"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="@dimen/dp8"
+                                        android:clickable="false"
+                                        android:paddingStart="@dimen/dp8"
+                                        android:paddingEnd="0dp"
+                                        android:text="@string/by_customer"
+                                        android:textColor="@color/textGray" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_by_vehicle_owner"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:clickable="false"
+                                        android:paddingStart="@dimen/dp8"
+                                        android:paddingEnd="0dp"
+                                        android:text="@string/by_vehicle_owner"
+                                        android:textColor="@color/textGray" />
+                                </RadioGroup>
+                            </LinearLayout>
+
+
+                            <EditText
+                                android:id="@+id/et_receiver_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="@string/receiver_contact_name_optional"
+                                android:longClickable="false"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp8"
+                                android:paddingBottom="@dimen/dp12"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_loading_selector" />
+
+                            <EditText
+                                android:id="@+id/et_receiver_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="@string/receiver_contact_number_optional"
+                                android:inputType="phone"
+                                android:longClickable="false"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp8"
+                                android:paddingBottom="@dimen/dp12"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_receiver_name" />
+
+                            <EditText
+                                android:id="@+id/et_owner_proposal_price_goods"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:hint="@string/your_proposal_price"
+                                android:inputType="numberDecimal"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp8"
+                                android:paddingBottom="@dimen/dp12"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/sp16"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_receiver_number"
+                                tools:visibility="visible" />
+
+
+                            <LinearLayout
+                                android:id="@+id/ll_owner_vehicle_selection_goods"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_owner_proposal_price_goods"
+                                tools:visibility="visible">
+
+                                <ImageView
+                                    android:id="@+id/iv_owner_vehicle_selection_goods"
+                                    android:layout_width="@dimen/_28sdp"
+                                    android:layout_height="@dimen/_28sdp"
+                                    android:layout_marginStart="@dimen/_4sdp"
+                                    android:layout_marginEnd="@dimen/_4sdp" />
+
+                                <TextView
+                                    android:id="@+id/tv_owner_vehicle_selection_goods"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:drawableEnd="@drawable/ic_arrow_drop_down_gray_24dp"
+                                    android:gravity="center_vertical"
+                                    android:paddingStart="@dimen/dp16"
+                                    android:paddingTop="@dimen/dp12"
+                                    android:paddingEnd="@dimen/dp8"
+                                    android:paddingBottom="@dimen/dp12"
+                                    android:text="@string/select_your_vehicle"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/sp16" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tv_edit_goods"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="24dp"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_primary_8_dp"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp8"
+                                android:paddingBottom="@dimen/dp12"
+                                android:text="@string/edit"
+                                android:textAllCaps="true"
+                                android:textColor="@color/textWhite"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_owner_vehicle_selection_goods"
+                                app:layout_constraintWidth_percent=".2" />
+
+
+                            <TextView
+                                android:id="@+id/tv_select_vehicle_owner_goods"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="24dp"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_primary_8_dp"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp8"
+                                android:paddingBottom="@dimen/dp12"
+                                android:text="@string/select_vehicle_owner"
+                                android:textAllCaps="true"
+                                android:textColor="@color/textWhite"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/tv_edit_goods"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_owner_vehicle_selection_goods" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_form_data_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp16"
+                        android:layout_marginTop="@dimen/dp16"
+                        android:layout_marginEnd="@dimen/dp16"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="@color/app_white"
+                        app:cardCornerRadius="@dimen/dp16"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cv_from_data"
+                        tools:visibility="visible">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/dp32">
+
+                            <EditText
+                                android:id="@+id/et_price"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="@string/price"
+                                android:inputType="numberDecimal"
+                                android:longClickable="false"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp8"
+                                android:paddingBottom="@dimen/dp12"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <EditText
+                                android:id="@+id/et_peoples"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="@string/peoples"
+                                android:inputType="number"
+                                android:longClickable="false"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp8"
+                                android:paddingBottom="@dimen/dp12"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_price" />
+
+                            <LinearLayout
+                                android:id="@+id/ll_luaggage_selector"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp16"
+                                android:paddingBottom="@dimen/dp12"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_peoples">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/luggage"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/sp16" />
+
+                                <RadioGroup
+                                    android:id="@+id/rbg_luggage"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp12"
+                                    android:gravity="end|center_vertical"
+                                    android:orientation="horizontal">
+
+
+                                    <RadioButton
+                                        android:id="@+id/rb_with_luggage"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="@dimen/dp8"
+                                        android:clickable="false"
+                                        android:paddingStart="@dimen/dp8"
+                                        android:paddingEnd="0dp"
+                                        android:text="@string/with_luggage"
+                                        android:textColor="@color/textGray" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_without_luggage"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:clickable="false"
+                                        android:paddingStart="@dimen/dp8"
+                                        android:paddingEnd="0dp"
+                                        android:text="@string/without_luggage"
+                                        android:textColor="@color/textGray" />
+                                </RadioGroup>
+                            </LinearLayout>
+
+                            <EditText
+                                android:id="@+id/et_luggage_weight"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="@string/luggage_weigth_approx_kg"
+                                android:longClickable="false"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp8"
+                                android:paddingBottom="@dimen/dp12"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/sp16"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_luaggage_selector" />
+
+
+                            <LinearLayout
+                                android:id="@+id/ll_vehicle_selection_humans"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_luggage_weight">
+
+                                <ImageView
+                                    android:id="@+id/iv_vehicle_selection_human"
+                                    android:layout_width="@dimen/_28sdp"
+                                    android:layout_height="@dimen/_28sdp"
+                                    android:layout_marginStart="@dimen/_4sdp"
+                                    android:layout_marginEnd="@dimen/_4sdp" />
+
+                                <TextView
+                                    android:id="@+id/tv_vehicle_selection_humans"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:drawableEnd="@drawable/ic_arrow_drop_down_gray_24dp"
+                                    android:gravity="center_vertical"
+                                    android:paddingStart="@dimen/dp16"
+                                    android:paddingTop="@dimen/dp12"
+                                    android:paddingEnd="@dimen/dp8"
+                                    android:paddingBottom="@dimen/dp12"
+                                    android:text="@string/vehicle_selection"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/sp16" />
+
+                            </LinearLayout>
+
+
+                            <EditText
+                                android:id="@+id/et_owner_proposal_price_humans"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:hint="@string/your_proposal_price"
+                                android:inputType="numberDecimal"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp8"
+                                android:paddingBottom="@dimen/dp12"
+                                android:textColor="@color/textGray"
+                                android:textSize="@dimen/sp16"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_vehicle_selection_humans"
+                                tools:visibility="visible" />
+
+                            <LinearLayout
+                                android:id="@+id/ll_owner_vehicle_selection_humans"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="@dimen/dp16"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/et_owner_proposal_price_humans"
+                                tools:visibility="visible">
+
+                                <ImageView
+                                    android:id="@+id/iv_owner_vehicle_selection_human"
+                                    android:layout_width="@dimen/_28sdp"
+                                    android:layout_height="@dimen/_28sdp"
+                                    android:layout_marginStart="@dimen/_4sdp"
+                                    android:layout_marginEnd="@dimen/_4sdp" />
+
+                                <TextView
+                                    android:id="@+id/tv_owner_vehicle_selection_human"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:drawableEnd="@drawable/ic_arrow_drop_down_gray_24dp"
+                                    android:gravity="center_vertical"
+                                    android:paddingStart="@dimen/dp16"
+                                    android:paddingTop="@dimen/dp12"
+                                    android:paddingEnd="@dimen/dp8"
+                                    android:paddingBottom="@dimen/dp12"
+                                    android:text="@string/select_your_vehicle"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/sp16" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tv_edit_humans"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="24dp"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_primary_8_dp"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp8"
+                                android:paddingBottom="@dimen/dp12"
+                                android:text="@string/edit"
+                                android:textAllCaps="true"
+                                android:textColor="@color/textWhite"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_owner_vehicle_selection_humans"
+                                app:layout_constraintWidth_percent=".2" />
+
+                            <TextView
+                                android:id="@+id/tv_select_vehicle_owner_humans"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp16"
+                                android:layout_marginTop="24dp"
+                                android:layout_marginEnd="@dimen/dp16"
+                                android:background="@drawable/rectangle_primary_8_dp"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/dp16"
+                                android:paddingTop="@dimen/dp12"
+                                android:paddingEnd="@dimen/dp8"
+                                android:paddingBottom="@dimen/dp12"
+                                android:text="@string/select_vehicle_owner"
+                                android:textAllCaps="true"
+                                android:textColor="@color/textWhite"
+                                android:textSize="@dimen/_12sdp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/tv_edit_humans"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_owner_vehicle_selection_humans" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent" />-->
+        </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+
+    </LinearLayout>
+</layout>

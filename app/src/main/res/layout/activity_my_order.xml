@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keepScreenOn="true"
+        android:animateLayoutChanges="true"
+        tools:context=".myOrder.MyOrderActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/my_order"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_16sdp" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <ImageView
+            android:id="@+id/iv_goods"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginStart="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/selector_btn_goods_left"
+            app:layout_constraintEnd_toStartOf="@+id/iv_humans"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/app_bar" />
+
+        <ImageView
+            android:id="@+id/iv_humans"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/selector_btn_humans_right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_goods"
+            app:layout_constraintTop_toBottomOf="@+id/app_bar" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_search"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@drawable/rectangle_bg_gray_18_sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_goods">
+
+            <ImageView
+                android:layout_width="@dimen/_32sdp"
+                android:padding="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:src="@drawable/ic_search_icon"/>
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:hint="@string/search"
+                android:textColor="@color/textGray"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:paddingHorizontal="@dimen/_4sdp"
+                android:textSize="@dimen/_14sdp"/>
+        </LinearLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_search" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
