@@ -153,7 +153,7 @@
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginEnd="@dimen/_12sdp"
                     android:background="@drawable/rectangle_bg_gray_8_dp"
-                    tools:text="@string/vehicle_jem"
+                    android:text="@string/vehicle_jem"
                     android:paddingStart="@dimen/_12sdp"
                     android:paddingEnd="@dimen/_6sdp"
                     android:paddingVertical="@dimen/_8sdp"
@@ -292,13 +292,14 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_64sdp"
+                    android:layout_height="0dp"
                     android:layout_marginStart="@dimen/_12sdp"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginEnd="@dimen/_12sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_last_customer_no"
+                    app:layout_constraintBottom_toTopOf="@+id/view"
                     android:background="@drawable/rectangle_bg_gray_8_dp" />
 
 
@@ -308,17 +309,103 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_12sdp"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
                     android:background="@drawable/rectangle_bg_gray_8_dp"
-                    android:text="@string/vehicle_owners_proof_jem"
+                    android:text="@string/vehicle_owners_n_proof_jem"
                     android:paddingStart="@dimen/_12sdp"
-                    android:paddingEnd="@dimen/_4sdp"
-                    android:paddingVertical="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:paddingTop="@dimen/_8sdp"
                     android:textColor="@color/textGray"
                     android:textStyle="bold"
                     android:textSize="@dimen/_12sdp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_last_customer_no" />
+
+
+                <TextView
+                    android:id="@+id/tv_rc_book"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rc_book"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:textColor="@color/textGray"
+                    android:drawableStart="@drawable/ic_done_green_16dp"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_address_proof"
+                    app:layout_constraintStart_toEndOf="@+id/tv_vehicle_owner_proofs"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_vehicle_owner_proofs" />
+
+
+                <TextView
+                    android:id="@+id/tv_address_proof"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_14sdp"
+                    android:textColor="@color/textGray"
+                    android:text="@string/address_proof"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:drawableStart="@drawable/ic_done_green_16dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_rc_book"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_vehicle_owner_proofs" />
+
+
+                <TextView
+                    android:id="@+id/tv_licence"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/licence"
+                    android:drawablePadding="@dimen/_4sdp"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_id_proof"
+                    android:textColor="@color/textGray"
+                    android:drawableStart="@drawable/ic_done_green_16dp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_vehicle_owner_proofs"
+                    app:layout_constraintTop_toBottomOf="@id/tv_address_proof"
+                    android:layout_marginTop="@dimen/_6sdp" />
+
+
+                <TextView
+                    android:id="@+id/tv_id_proof"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rc_book"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:textColor="@color/textGray"
+                    android:drawableStart="@drawable/ic_done_green_16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="@dimen/_14sdp"
+
+                    app:layout_constraintStart_toEndOf="@+id/tv_licence"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_licence" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_id_proof"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/tv_confirm_order"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:layout_marginBottom="@dimen/_24sdp"
+                    android:background="@drawable/rectangle_primary_8_dp"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="@string/confirm_order"
+                    android:textAllCaps="true"
+                    android:textColor="@color/textWhite"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view"
+                    app:layout_constraintWidth_percent=".65" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

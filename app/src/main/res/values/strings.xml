@@ -62,6 +62,7 @@
     <string name="_private">Private</string>
     <string name="sharing">Sharing</string>
     <string name="loading_unloading">Loading &amp; Unloading :</string>
+    <string name="loading_unloding">Loading &amp; Unloading</string>
     <string name="by_customer">By Customer</string>
     <string name="by_vehicle_owner">By Vehicle Owner</string>
     <string name="receiver_contact_name_optional">Receiver <b>Contact Name</b> (Optional)</string>
@@ -133,5 +134,10 @@
     <string name="vehicle_jem">Vehicle  :</string>
     <string name="contact_mo_no">Contact Mo.No.</string>
     <string name="last_customer_mo_no">Last Customer Mo. No.</string>
-    <string name="vehicle_owners_proof_jem">Vehicle Owners Proof :</string>
+    <string name="vehicle_owners_proof_jem">Vehicle Owners :\nProof</string>
+    <string name="vehicle_owners_n_proof_jem">Vehicle Owners :\nProof</string>
+    <string name="rc_book">RC Book</string>
+    <string name="address_proof">Address Proof</string>
+    <string name="licence">Licence</string>
+    <string name="name">Name</string>
 </resources>

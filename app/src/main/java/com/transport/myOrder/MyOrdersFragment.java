@@ -49,7 +49,7 @@ public class MyOrdersFragment extends Fragment {
     private int MAX_LIMIT = 10;
     private boolean moreItemLoad = true;
     private int selectedItem, orderSummeryId;
-    private String searchText;
+    private String searchText = "";
     private boolean isOwner = false;
 
     MyOrdersFragment(boolean isHuman) {
@@ -95,20 +95,20 @@ public class MyOrdersFragment extends Fragment {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                 if (!moreItemLoad) return;
-                if (isReceive)
-                    getFeedForVehicle(page);
-                else {
-                    if (isOwner)
-                        getOwnerOrders(page);
-                    else
-                        getMyOrder(page);
+                if (isReceive) {
+                    if (isOwner) getFeedForVehicle(page);
+                    else getFeedForUser(page);
+                } else {
+                    if (isOwner) getOwnerOrders(page);
+                    else getMyOrder(page);
                 }
             }
         };
         binding.rvList.setLayoutManager(manager);
         binding.rvList.addOnScrollListener(scrollListener);
         if (isReceive) {
-            getFeedForVehicle(1);
+            if (isOwner) getFeedForVehicle(1);
+            else getFeedForUser(1);
         } else {
             if (isOwner) getOwnerOrders(1);
             else
@@ -116,17 +116,51 @@ public class MyOrdersFragment extends Fragment {
         }
     }
 
+    private void getFeedForUser(int page) {
+        if (!AppUtils.isNetworkAvailableWithDialog(requireContext())) return;
+        DialogUtil.showProgressDialog(requireActivity(), requireFragmentManager());
+
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("searchText", searchText);
+        map.put("id", SharedPrefs.getUserId(requireContext()));
+        map.put("isHuman", isHuman);
+        map.put("pageNo", page);
+        map.put("pageSize", MAX_LIMIT);
+
+
+        disposable.add(getApiService().getFeedForUser(SharedPrefs.getAuthToken(requireContext()), map)
+                .compose(applySchedulers())
+                .subscribe(orders -> {
+                    DialogUtil.dismissProgressDialog();
+                    if (orders.getStatus().getCode() == 0) {
+                        setList(page, orders.getAllOrders());
+                        if (orders.getAllOrders().size() < MAX_LIMIT)
+                            moreItemLoad = false;
+                    } else
+                        Toast.makeText(requireContext(), orders.getStatus().getReturnMessage(), Toast.LENGTH_SHORT).show();
+                }, throwable -> {
+                    DialogUtil.dismissProgressDialog();
+                    throwable.printStackTrace();
+                    Toast.makeText(requireContext(), R.string.fail, Toast.LENGTH_SHORT).show();
+                }));
+
+    }
+
 
     private void onItemClick(int position, Orders.AllOrder.OrderList orderList) {
-        Intent intent = new Intent(requireActivity(), MyOrderDetailActivity.class);
-        intent.putExtra(Constants.ORDER, orderList);
-        if (isReceive) {
-            intent.setAction(Constants.CONFIRM_ORDER);
-        }
-        selectedItem = position;
-        orderSummeryId = orderList.getOrderSummaryId();
+        if (isReceive && !isOwner) {
+//            Intent intent =  new Intent(requireContext(),)
+        } else {
+            Intent intent = new Intent(requireActivity(), MyOrderDetailActivity.class);
+            intent.putExtra(Constants.ORDER, orderList);
+            if (isReceive) intent.setAction(Constants.CONFIRM_ORDER);
+            selectedItem = position;
+//            orderSummeryId = !isOwner ? orderList.getVehicleOrderSummaryId() : orderList.getOrderSummaryId();
+           orderSummeryId = orderList.getOrderSummaryId();
 //        intent.putExtra(Constants.POSITION, position);
-        startActivityForResult(intent, Constants.ORDER_DETAIL);
+            startActivityForResult(intent, Constants.ORDER_DETAIL);
+        }
     }
 
     private void getFeedForVehicle(int page) {
@@ -325,7 +359,8 @@ public class MyOrdersFragment extends Fragment {
 
     public void search(String searchText) {
         this.searchText = searchText;
-        getFeedForVehicle(1);
+        if (isOwner) getFeedForUser(1);
+        else getFeedForVehicle(1);
 
     }
 }

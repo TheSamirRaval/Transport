@@ -1,32 +1,30 @@
 package com.transport.proposal;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
-
 import com.transport.R;
 import com.transport.adapter.VehicleOwnerProposalAdapter;
-import com.transport.api.ApiClient;
-import com.transport.api.model.OrderProposal;
 import com.transport.databinding.ActivityRecyclerViewBinding;
-import com.transport.databinding.RvItemVehicleOwnerBinding;
 import com.transport.utils.AppUtils;
 import com.transport.utils.Constants;
 import com.transport.utils.DialogUtil;
 import com.transport.utils.EndlessRecyclerViewScrollListener;
 import com.transport.utils.SharedPrefs;
+import com.transport.vehicleOwner.ConfirmOrderSelectOwnerActivity;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import io.reactivex.disposables.CompositeDisposable;
-import timber.log.Timber;
 
 import static com.transport.api.ApiClient.applySchedulers;
 import static com.transport.api.ApiClient.getApiService;
@@ -39,6 +37,7 @@ public class OrderProposalsActivity extends AppCompatActivity {
     private final int MAX_LIMIT = 20;
     private String orderId;
     private VehicleOwnerProposalAdapter vehicleOwnerProposalAdapter;
+    private boolean isHuman = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +81,8 @@ public class OrderProposalsActivity extends AppCompatActivity {
             finish();
             return;
         }
+        if (getIntent().hasExtra(Constants.IS_HUMAN))
+            isHuman = getIntent().getBooleanExtra(Constants.IS_HUMAN, false);
 
         LinearLayoutManager manager = new LinearLayoutManager(activity);
         EndlessRecyclerViewScrollListener scrollListener = new EndlessRecyclerViewScrollListener(manager, 5) {
@@ -96,7 +97,10 @@ public class OrderProposalsActivity extends AppCompatActivity {
 
 
         vehicleOwnerProposalAdapter = new VehicleOwnerProposalAdapter((position, vehicleProposal) -> {
-
+            Intent intent = new Intent(activity, ConfirmOrderSelectOwnerActivity.class);
+            intent.putExtra(Constants.VEHICLE_PROPOSAL, vehicleProposal);
+            intent.putExtra(Constants.IS_HUMAN, isHuman);
+            startActivity(intent);
         });
         binding.rvList.setAdapter(vehicleOwnerProposalAdapter);
         getVehicleProposalByOrderId(1);

@@ -31,7 +31,7 @@ public class VehicleOwnerProposalAdapter extends RecyclerView.Adapter<VehicleOwn
     private OnItemSelectListener<OrderProposal.VehicleProposal> onItemSelectListener;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy 'at' hh:mm a", Locale.ENGLISH);
     private SimpleDateFormat apiDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ENGLISH);
-    private NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
+    private NumberFormat numberFormat = NumberFormat.getCurrencyInstance(new Locale("en", "in"));
 
     public VehicleOwnerProposalAdapter(OnItemSelectListener<OrderProposal.VehicleProposal> onItemSelectListener) {
         this.onItemSelectListener = onItemSelectListener;

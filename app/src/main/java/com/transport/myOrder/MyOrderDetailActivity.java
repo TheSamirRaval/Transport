@@ -1,11 +1,5 @@
 package com.transport.myOrder;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -21,6 +15,12 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.transport.R;
 import com.transport.adapter.OwnerVehicleDialogAdapter;
 import com.transport.adapter.RowMatirealDialogAdapter;
@@ -34,12 +34,12 @@ import com.transport.api.model.Vehicles;
 import com.transport.app.GlideApp;
 import com.transport.databinding.ActivityMyOrderDetailBinding;
 import com.transport.databinding.DialogRowMaterialBinding;
+import com.transport.proposal.OrderProposalsActivity;
 import com.transport.utils.AppUtils;
 import com.transport.utils.Constants;
 import com.transport.utils.DialogUtil;
 import com.transport.utils.EndlessRecyclerViewScrollListener;
 import com.transport.utils.SharedPrefs;
-import com.transport.proposal.OrderProposalsActivity;
 import com.transport.widget.NestedScrollableViewHelper;
 
 import java.text.ParseException;
@@ -84,6 +84,7 @@ public class MyOrderDetailActivity extends AppCompatActivity {
     private static final int MAX_LIMIT = 20;
     private boolean moreOwnerVehicleLoad = true;
     private OwnerVehicleDialogAdapter ownerVehicleDialogAdapter;
+    private boolean isHuman = false;
     //endregion
 
     @Override
@@ -147,6 +148,7 @@ public class MyOrderDetailActivity extends AppCompatActivity {
         int productState = product.getProductState();
 
         if (productState == Constants.HUMAN) {
+            isHuman = true;
             if (isOwner)
                 binding.tvTitle.setText(R.string.humans_receive_order);
 
@@ -199,6 +201,7 @@ public class MyOrderDetailActivity extends AppCompatActivity {
             }
             binding.tvSelectVehicleOwnerHumans.setOnClickListener(v -> selectOwnerVehicleOrConfirmOrder());
         } else {
+            isHuman = false;
             if (isOwner)
                 binding.tvTitle.setText(R.string.goods_receive_order);
 
@@ -336,6 +339,7 @@ public class MyOrderDetailActivity extends AppCompatActivity {
         } else {
             Intent intent = new Intent(activity, OrderProposalsActivity.class);
             intent.putExtra(Constants.ORDER_ID, order.getOrderSummaryId().toString());
+            intent.putExtra(Constants.IS_HUMAN,isHuman);
             startActivity(intent);
         }
     }
@@ -741,12 +745,4 @@ public class MyOrderDetailActivity extends AppCompatActivity {
         editText.setClickable(true);
     }
 
-
-    private boolean isMyBirthDay() {
-        Calendar mCalendar = Calendar.getInstance();
-        if (mCalendar.get(Calendar.MONTH) == Calendar.APRIL) {
-            return mCalendar.get(Calendar.DAY_OF_MONTH) == 26;
-        }
-        return false;
-    }
 }

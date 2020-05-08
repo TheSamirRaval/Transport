@@ -73,5 +73,7 @@ public class Constants {
     public static final String CONFIRM_ORDER = "confirmOrder";
     public static final String POSITION = "position";
     public static final String ORDER_ID = "orderId";
+    public static final String VEHICLE_PROPOSAL = "vehicleProposal";
+    public static final String IS_HUMAN = "isHuman";
 }
 

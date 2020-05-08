@@ -91,6 +91,7 @@ import com.transport.utils.AppUtils;
 import com.transport.utils.Constants;
 import com.transport.utils.DialogUtil;
 import com.transport.utils.SharedPrefs;
+import com.transport.vehicleOwner.receiveOrder.ReceiveOrderActivity;
 import com.transport.widget.NestedScrollableViewHelper;
 
 import org.jetbrains.annotations.NotNull;
@@ -233,6 +234,8 @@ public class HomeActivity extends AppCompatActivity {
                     startActivity(intent);
                     break;
                 case 3:
+                    Intent receiveIntent = new Intent(activity, ReceiveOrderActivity.class);
+                    startActivity(receiveIntent);
                     break;
                 case 4:
                     break;

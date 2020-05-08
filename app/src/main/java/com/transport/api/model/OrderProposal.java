@@ -377,7 +377,7 @@ public class OrderProposal {
         }
 
         public String getVehicalType() {
-            return vehicalType;
+            return vehicalType == null ? "null" : vehicalType;
         }
 
         public void setVehicalType(String vehicalType) {
@@ -441,7 +441,7 @@ public class OrderProposal {
         }
 
         public String getContactNumber() {
-            return contactNumber;
+            return contactNumber == null ? "" : contactNumber;
         }
 
         public void setContactNumber(String contactNumber) {

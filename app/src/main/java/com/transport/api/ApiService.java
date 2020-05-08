@@ -2,14 +2,14 @@ package com.transport.api;
 
 
 import com.transport.api.model.AddUpdateOrder;
-import com.transport.api.model.OrderProposal;
-import com.transport.api.model.OwnerVehicle;
-import com.transport.api.model.StatusObjectHolder;
 import com.transport.api.model.Cities;
+import com.transport.api.model.OrderProposal;
 import com.transport.api.model.Orders;
+import com.transport.api.model.OwnerVehicle;
 import com.transport.api.model.RowMaterials;
 import com.transport.api.model.States;
 import com.transport.api.model.Status;
+import com.transport.api.model.StatusObjectHolder;
 import com.transport.api.model.User;
 import com.transport.api.model.Vehicles;
 
@@ -72,6 +72,9 @@ public interface ApiService {
     @POST("Order/GetFeedForVehicle")
     Observable<Orders> getFeedForVehicle(@Header("AuthToken") String authorization, @Body Map<String, Object> map);
 
+    @POST("VehicleOrder/GetFeedForUser")
+    Observable<Orders> getFeedForUser(@Header("AuthToken") String authorization, @Body Map<String, Object> map);
+
 
     @POST("Vehicle/GetVehicleByUserId")
     Observable<OwnerVehicle> getVehicleByUserId(@Header("AuthToken") String authorization, @Body Map<String, Object> map);
@@ -84,5 +87,8 @@ public interface ApiService {
 
     @POST("VehicleProposal/GetVehicleProposalByOrderId")
     Observable<OrderProposal> getVehicleProposalByOrderId(@Header("AuthToken") String authorization, @Body Map<String, Object> map);
+
+    @POST("Order/ConfirmProposalInOrder")
+    Observable<StatusObjectHolder> confirmProposalInOrder(@Header("AuthToken") String authorization, @Body Map<String, Object> map);
 
 }
