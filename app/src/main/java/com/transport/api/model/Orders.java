@@ -960,7 +960,7 @@ public class Orders {
             }
 
             public String getVehicleType() {
-                return vehicleType;
+                return vehicleType == null ? "null" : vehicleType;
             }
 
             public void setVehicleType(String vehicleType) {

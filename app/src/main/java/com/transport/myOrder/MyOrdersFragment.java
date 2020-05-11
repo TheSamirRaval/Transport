@@ -17,6 +17,7 @@ import com.transport.R;
 import com.transport.adapter.MyHumanOrderAdapter;
 import com.transport.adapter.MyOrderAdapter;
 import com.transport.api.model.Orders;
+import com.transport.customerReceiveOrderDetail.ReceiveOrderDetailActivity;
 import com.transport.databinding.FragmentRecyclerViewBinding;
 import com.transport.utils.AppUtils;
 import com.transport.utils.Constants;
@@ -150,14 +151,18 @@ public class MyOrdersFragment extends Fragment {
 
     private void onItemClick(int position, Orders.AllOrder.OrderList orderList) {
         if (isReceive && !isOwner) {
-//            Intent intent =  new Intent(requireContext(),)
+            Intent intent = new Intent(requireContext(), ReceiveOrderDetailActivity.class);
+            intent.putExtra(Constants.ORDER, orderList);
+            selectedItem = position;
+            orderSummeryId = orderList.getVehicleOrderSummaryId();
+            startActivityForResult(intent, Constants.ORDER_DETAIL);
         } else {
             Intent intent = new Intent(requireActivity(), MyOrderDetailActivity.class);
             intent.putExtra(Constants.ORDER, orderList);
             if (isReceive) intent.setAction(Constants.CONFIRM_ORDER);
             selectedItem = position;
 //            orderSummeryId = !isOwner ? orderList.getVehicleOrderSummaryId() : orderList.getOrderSummaryId();
-           orderSummeryId = orderList.getOrderSummaryId();
+            orderSummeryId = orderList.getOrderSummaryId();
 //        intent.putExtra(Constants.POSITION, position);
             startActivityForResult(intent, Constants.ORDER_DETAIL);
         }

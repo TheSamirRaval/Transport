@@ -127,6 +127,7 @@
     <string name="pick_up_date_time"><![CDATA[Pick Up Date & Time]]></string>
     <string name="vehicle_owner_rate">Vehicle Owner Rate</string>
     <string name="profile">Profile</string>
+    <string name="profile_jem">Profile  :</string>
     <string name="total_projects">Total Projects</string>
     <string name="total_project">Total Project</string>
     <string name="vehicle_owner_price">Vehicle Owner Price</string>
@@ -140,4 +141,5 @@
     <string name="address_proof">Address Proof</string>
     <string name="licence">Licence</string>
     <string name="name">Name</string>
+    <string name="hire_kg">Hire Kg</string>
 </resources>

@@ -281,11 +281,11 @@
                                     android:layout_weight="1"
                                     android:layout_height="wrap_content"
                                     android:gravity="center_vertical"
-                                    android:paddingStart="@dimen/_12sdp"
                                     android:paddingTop="@dimen/_8sdp"
                                     android:singleLine="true"
                                     android:maxLines="1"
-                                    android:paddingEnd="@dimen/_6sdp"
+                                    android:paddingStart="0dp"
+                                    android:paddingEnd="@dimen/_2sdp"
                                     android:paddingBottom="@dimen/_8sdp"
                                     android:text="@string/vehicle_selection"
                                     android:textColor="@color/textGray"
@@ -313,6 +313,71 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/ll_vehicle_selection" />
 
+
+                            <LinearLayout
+                                android:id="@+id/ll_select_material"
+                                android:layout_width="match_parent"
+
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                android:background="@drawable/rectangle_bg_gray_8_dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingStart="@dimen/_12sdp"
+                                android:paddingTop="@dimen/_8sdp"
+                                android:paddingEnd="@dimen/_12sdp"
+                                android:paddingBottom="@dimen/_8sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_price">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/from_jem"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/_11sdp" />
+
+                                <RadioGroup
+                                    android:id="@+id/rbg_material"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="end"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:id="@+id/rb_solid"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginEnd="@dimen/_6sdp"
+                                        android:clickable="false"
+                                        android:text="@string/solid"
+                                        android:textColor="@color/textGray" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_liquid"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginEnd="@dimen/_6sdp"
+                                        android:text="@string/liquid"
+                                        android:textColor="@color/textGray" />
+
+                                    <RadioButton
+                                        android:id="@+id/rb_gas"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:clickable="false"
+                                        android:text="@string/gas"
+                                        android:textColor="@color/textGray" />
+
+                                </RadioGroup>
+
+
+                            </LinearLayout>
+
+
                             <TextView
                                 android:id="@+id/tv_person"
                                 android:layout_width="match_parent"
@@ -330,7 +395,7 @@
                                 android:textSize="@dimen/_11sdp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_price" />
+                                app:layout_constraintTop_toBottomOf="@+id/ll_select_material" />
 
 
                             <LinearLayout
@@ -392,7 +457,7 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:id="@+id/ll_luaggage_selector"
+                                android:id="@+id/ll_loading"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/_12sdp"
@@ -412,7 +477,8 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/luggage"
+                                    android:text="@string/loading_unloading"
+                                    android:textStyle="bold"
                                     android:textColor="@color/textGray"
                                     android:textSize="@dimen/_11sdp" />
 
@@ -433,7 +499,7 @@
                                         android:clickable="false"
                                         android:paddingStart="@dimen/_6sdp"
                                         android:paddingEnd="0dp"
-                                        android:text="@string/with_luggage"
+                                        android:text="@string/by_customer"
                                         android:textColor="@color/textGray" />
 
                                     <RadioButton
@@ -443,20 +509,20 @@
                                         android:clickable="false"
                                         android:paddingStart="@dimen/_6sdp"
                                         android:paddingEnd="0dp"
-                                        android:text="@string/without_luggage"
+                                        android:text="@string/by_vehicle_owner"
                                         android:textColor="@color/textGray" />
                                 </RadioGroup>
                             </LinearLayout>
 
                             <TextView
-                                android:id="@+id/et_luggage_weight"
+                                android:id="@+id/tv_max_luggage"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/_12sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:layout_marginEnd="@dimen/_12sdp"
                                 android:background="@drawable/rectangle_bg_gray_8_dp"
-                                android:hint="@string/luggage_weigth_approx_kg"
+                                tools:text="@string/luggage_weigth_approx_kg"
                                 android:paddingStart="@dimen/_12sdp"
                                 android:paddingTop="@dimen/_8sdp"
                                 android:paddingEnd="@dimen/dp8"
@@ -465,44 +531,79 @@
                                 android:textSize="@dimen/_11sdp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/ll_luaggage_selector" />
+                                app:layout_constraintTop_toBottomOf="@+id/ll_loading" />
+
 
                             <LinearLayout
-                                android:id="@+id/ll_vehicle_selection_humans"
-                                android:layout_width="0dp"
+                                android:id="@+id/view_profile"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
                                 android:layout_marginStart="@dimen/_12sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
-                                android:layout_marginEnd="@dimen/_12sdp"
-                                android:background="@drawable/rectangle_bg_gray_8_dp"
-                                android:gravity="center_vertical"
                                 android:orientation="horizontal"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/et_luggage_weight">
-
-                                <ImageView
-                                    android:id="@+id/iv_vehicle_selection_human"
-                                    android:layout_width="@dimen/_28sdp"
-                                    android:layout_height="@dimen/_28sdp"
-                                    android:layout_marginStart="@dimen/_4sdp"
-                                    android:layout_marginEnd="@dimen/_4sdp" />
+                                android:layout_marginEnd="@dimen/_12sdp"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_max_luggage"
+                                android:background="@drawable/rectangle_bg_gray_8_dp">
 
                                 <TextView
-                                    android:id="@+id/tv_vehicle_selection_humans"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:drawableEnd="@drawable/ic_arrow_drop_down_gray_24dp"
-                                    android:gravity="center_vertical"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/textGray"
+                                    android:textSize="@dimen/_11sdp"
+                                    android:layout_width="wrap_content"
+                                    android:text="@string/profile_jem"
                                     android:paddingStart="@dimen/_12sdp"
                                     android:paddingTop="@dimen/_8sdp"
-                                    android:paddingEnd="@dimen/dp8"
+                                    android:paddingEnd="@dimen/_6sdp"
                                     android:paddingBottom="@dimen/_8sdp"
-                                    android:text="@string/vehicle_selection"
-                                    android:textColor="@color/textGray"
-                                    android:textSize="@dimen/sp16" />
+                                    android:layout_height="wrap_content" />
 
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="@dimen/_4sdp"
+                                        android:textSize="@dimen/_9sdp"
+                                        android:paddingTop="@dimen/_9sdp"
+                                        android:paddingEnd="@dimen/_2sdp"
+                                        android:paddingBottom="@dimen/_2sdp"
+                                        android:textColor="@color/textGray"
+                                        tools:text="70% strong  completed" />
+
+                                    <ProgressBar
+                                        android:id="@+id/progress"
+                                        style="?android:attr/progressBarStyleHorizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/_3sdp"
+                                        android:layout_marginStart="@dimen/_2sdp"
+                                        android:layout_marginTop="@dimen/_4sdp"
+                                        android:indeterminate="false"
+                                        android:layout_marginEnd="@dimen/_8sdp"
+                                        android:max="100"
+                                        android:progress="55"
+                                        android:layout_marginBottom="@dimen/_8sdp"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/tv_profile_complete"
+                                        app:layout_constraintWidth_percent=".7" />
+
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:id="@+id/iv_eye"
+                                    android:layout_width="@dimen/_24sdp"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/ic_show"
+                                    android:layout_gravity="center"
+                                    android:layout_marginEnd="@dimen/_8sdp"
+                                    android:padding="@dimen/_4sdp" />
                             </LinearLayout>
+
 
                             <TextView
                                 android:id="@+id/tv_contact_m_no"
@@ -521,7 +622,7 @@
                                 android:textSize="@dimen/_11sdp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/ll_vehicle_selection_humans" />
+                                app:layout_constraintTop_toBottomOf="@+id/view_profile" />
 
                             <TextView
                                 android:id="@+id/tv_last_contact_m_no"
